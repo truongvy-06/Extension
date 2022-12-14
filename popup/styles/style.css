@@ -1,0 +1,343 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* https://www.cssfontstack.com/Segoe-UI */
+h1 {
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
+}
+
+h3 {
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 15.4px;
+}
+
+p,
+div {
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+/* ============== End font =============== */
+
+html,
+body {
+    min-width: 350px;
+    background-color: #e6e6e6;
+}
+
+h1,
+h3 {
+    text-align: center;
+}
+
+h3 a {
+    background-color: #ddd;
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 5px;
+}
+
+a:hover {
+    background-color: #bbb;
+}
+
+#flag {
+    width: 35;
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    cursor: pointer;
+}
+
+#open-in-new-tab {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: none;
+    background-color: #ddd;
+}
+
+#open-in-new-tab:hover {
+    background-color: #bbb;
+}
+
+#update-btn {
+    display: none;
+    border: none;
+    border-radius: 5px;
+    padding: 3px;
+    color: #eee;
+    background-color: #009e00;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#update-btn:hover {
+    color: #fff;
+    background-color: #00c200;
+}
+
+/* ---------- Tab button ---------- */
+.tab {
+    overflow: hidden;
+    background-color: #cccccc;
+    overflow: auto;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 12px;
+    transition: 0.3s;
+}
+
+.tab button:hover {
+    background-color: #afafaf;
+}
+
+.tab button.active {
+    background-color: #a8a8a8;
+}
+
+/* ---------- Content & content button ---------- */
+.tabcontent {
+    padding: 6px;
+    border-top: none;
+    padding-bottom: 50px;
+}
+
+.tabcontent {
+    animation: fadeEffect .3s;
+}
+
+.section-title {
+    padding: 10px 0 5px;
+    position: sticky;
+    top: 0;
+    background-color: #e6e6e6;
+    z-index: 1;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.content button {
+    display: block;
+    border: none;
+    margin: 0.25em;
+    padding: 0.75em 1em;
+    color: #333;
+    background-color: #c6c6c6;
+    transition: all 200ms;
+}
+
+.content button:hover {
+    background-color: #a8a8a8;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.content button:active {
+    background-color: #666;
+    color: #ddd;
+}
+
+.content button i.star,
+.content button i.view-source {
+    opacity: 0;
+    width: 0;
+    transition: all .2s;
+}
+
+.content button i.star.active {
+    color: #0048ad;
+}
+
+.content button i.star:hover,
+.content button i.view-source:hover {
+    transform: scale(1.8);
+}
+
+.content button:hover i.star,
+.content button i.star.active,
+.content button:hover i.view-source {
+    width: auto;
+    margin-left: 5px;
+    opacity: 1;
+}
+
+.content button .btn-title {
+    vertical-align: middle;
+}
+
+.content button .icon-img {
+    display: inline-block;
+    vertical-align: middle;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.content button .icon-html {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.content button .badgeContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(50%) translateY(-40%);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.content button .badge {
+    padding: 3px 5px;
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ---------- Tooltip ---------- */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    min-width: 120px;
+    background-color: rgb(133, 133, 133);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    pointer-events: none;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 80%;
+    left: 0;
+    opacity: 0;
+    transition: all .1s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    top: 105%;
+    opacity: 1;
+    transition: all .3s linear .7s;
+}
+
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent rgb(133, 133, 133) transparent;
+}
+
+/* --------- Modal ---------- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-height: 90%;
+}
+
+.modal-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-title {
+    margin: 10px auto 15px;
+}
+
+.modal-body {
+    max-height: 70%;
+    overflow: auto;
+}
+
+/* --------- scrollbar --------- */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
